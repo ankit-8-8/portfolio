@@ -1,0 +1,207 @@
+ :root {
+     --color1: rgba(183, 34, 34, 0.481);
+     --nav-hover: #dc1432; /* theme-compatible hover (matches existing project accent) */
+ }
+
+ body {
+     background-color: black;
+ }
+
+ a {
+     text-decoration: none;
+
+ }
+
+ .project-card {
+     /* height: 400px; */
+     width: 90%;
+     border-radius: 10px;
+     border: 0.1px solid rgba(123, 30, 30, 0.481);
+ }
+
+ .project-card:hover {
+     background-color: rgb(8, 8, 8);
+     border-color: red;
+     box-shadow: 0px 0px 10px 0 rgba(255, 0, 0, 0.456),
+         0px 0px 20px rgba(255, 0, 0, 0.532)
+ }
+
+ .project-card p {
+     color: gray;
+
+ }
+
+ .contact-card:hover {
+     animation: rotate 1s 1 linear;
+
+ }
+
+ #navbar {
+     background-color: rgba(255, 255, 255, 0.1);
+     backdrop-filter: blur(50px);
+     border-bottom-left-radius: 10px;
+     border-bottom-right-radius: 10px;
+     
+ }
+
+ .home-sec {
+     height: 75vh;
+     display: flex;
+     align-items: center;
+ }
+
+ .my-icon {
+     display: inline-block;
+     height: 45px;
+     width: 45px;
+     text-align: center;
+     line-height: 40px;
+     border-radius: 50%;
+     box-shadow: 2px 2px 5px red inset,
+         -2px -2px 10px red inset,
+         0 0 5px red;
+ }
+
+ .contact-platform {
+     height: 140px;
+     width: 140px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     box-shadow: 0px 0px 5px 0 rgba(255, 0, 0, 0.456) inset,
+         0px 0px 10px rgba(255, 0, 0, 0.532) inset;
+     transition: 0.3s;
+ }
+
+ .contact-platform:hover {
+     box-shadow: 0px 0px 10px 0 rgba(255, 0, 0, 0.456) inset,
+         0px 0px 20px rgba(255, 0, 0, 0.532) inset,
+         0 0 30px rgba(255, 0, 0, 0.532) inset;
+     transition: 0.3s;
+ }
+
+ .tech-icon:hover {
+     transform: translateY(-3px);
+ }
+
+ .t-shadow1 {
+     color: red;
+     text-shadow: -2px -2px 5px rgba(183, 34, 34, 0.481),
+         2px 2px 10px rgba(183, 34, 34, 0.481);
+ }
+
+ .b-shadow1 {
+     background-image: linear-gradient(to right, rgb(208, 17, 17), rgb(133, 13, 13));
+     box-shadow: 2px 2px 5px red inset,
+         -2px -2px 10px red inset,
+         0 0 5px red;
+ }
+
+ .github-link {
+     color: rgb(168, 159, 159);
+ }
+
+ .github-link:hover {
+     color: white;
+     text-shadow: 0 0 15px rgba(255, 255, 255, 0.434);
+ }
+
+ .img-outer img {
+     height: 400px;
+     border-radius: 35%;
+
+ }
+
+ .darr {
+     animation: udown1 1.5s infinite alternate-reverse linear;
+ }
+
+ .fa-file-arrow-down {
+     animation: udown2 1s infinite alternate-reverse ease-in;
+ }
+
+ @keyframes udown1 {
+     from {
+         transform: translateY(0px);
+     }
+
+     to {
+         transform: translateY(10px);
+     }
+ }
+
+ @keyframes udown2 {
+     from {
+         transform: translateY(-5px);
+     }
+
+     to {
+         transform: translateY(0);
+     }
+ }
+
+ @keyframes rotate {
+     from {
+         transform: perspective() rotate3d(1, 1, 1, 0deg);
+         transform-origin: right top;
+
+     }
+
+     from {
+         transform: rotate3d(1, 0, 1, 360deg);
+     }
+ }
+
+/* Underline on hover for navbar links (animated) */
+.navbar .nav-link{
+    position: relative;
+    color: inherit;
+    text-decoration: none !important;
+    padding: 4px 0;
+}
+.navbar .nav-link::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 2px;
+    width: 100%;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 200ms ease;
+}
+.navbar .nav-link:hover::after,
+.navbar .nav-link:focus::after{
+    transform: scaleX(1);
+}
+
+/* change link color on hover to match theme accent and smooth transition */
+.navbar .nav-link{
+    transition: color 180ms ease;
+}
+.navbar .nav-link:hover,
+.navbar .nav-link:focus{
+    color: var(--nav-hover) !important;
+}
+
+/* Exclude the last nav item (e.g. Resume) from underline and hover color */
+.navbar-nav .nav-item:last-child .nav-link::after{
+    display: none;
+}
+.navbar-nav .nav-item:last-child .nav-link,
+.navbar-nav .nav-item:last-child .nav-link:hover,
+.navbar-nav .nav-item:last-child .nav-link:focus{
+    color: inherit !important;
+    transition: none;
+}
+
+/* Right border only on large (lg) screens for contact column */
+.lg-border-end {
+    border-right: none;
+}
+@media (min-width: 992px) {
+    .lg-border-end {
+        border-right: 2px solid var(--color1);
+    }
+}
